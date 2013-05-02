@@ -31,10 +31,10 @@ function xhrGet(reqUri, callback, type) {
 }
 
 parseJSON = function (xhr) {
-    parsedJSON = JSON.parse(xhr.responseText);
+    var parsedJSON = JSON.parse(xhr.responseText);
 
-    x = parsedJSON['frames']['chaingun_impact.png']['spriteSourceSize']['x'];
-    console.log(x);
+    var x = parsedJSON['frames']['chaingun_impact.png']['spriteSourceSize']['x'];
+    //console.log(x);
     return x;
 };
 
@@ -56,9 +56,6 @@ playSound = function (xhr) {
         }, function (data) {});
     }
     catch(e) {
-        console.warn('Web Audio API is not supported in this browser');
+        //console.warn('Web Audio API is not supported in this browser');
     }
 };
-
-xhrGet('/media/js/standalone/libs/gamedev_assets/weapon.json', parseJSON, null);
-xhrGet('/media/js/standalone/libs/gamedev_assets/bg_menu.ogg', playSound, 'arraybuffer');
